@@ -14,3 +14,8 @@
 tipagem que o styled já tem e não subcrever ela por isso a necessidade de importar ele.
 
 - Quando eu crio o ThemeType e passo o defaultTheme ele já importa o defaultTheme.
+
+## Componente Header
+
+- Foi criada a pasta assets e importado o logo em svg do figma.
+- Foi criada a pasta pages e um componente chamado Transactions
