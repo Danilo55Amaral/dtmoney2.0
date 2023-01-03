@@ -19,3 +19,10 @@ tipagem que o styled já tem e não subcrever ela por isso a necessidade de impo
 
 - Foi criada a pasta assets e importado o logo em svg do figma.
 - Foi criada a pasta pages e um componente chamado Transactions
+
+## Componente Summary
+
+- Aqui criamos o componente Summary que mostra o resumo em tela.
+- Aqui foi instalada a lib de icones do phosphor React rodando o comando abaixo
+- npm i phosphor-react 
+- foi criada a interface SummaryCardProps para criar uma propriedade chamada variant e criar uma condicional para cores.
