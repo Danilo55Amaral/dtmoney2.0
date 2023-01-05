@@ -26,3 +26,8 @@ tipagem que o styled já tem e não subcrever ela por isso a necessidade de impo
 - Aqui foi instalada a lib de icones do phosphor React rodando o comando abaixo
 - npm i phosphor-react 
 - foi criada a interface SummaryCardProps para criar uma propriedade chamada variant e criar uma condicional para cores.
+
+## Tabela de transações 
+
+- A tabela de transações foi feita dentro da página trnasactions porém se for necessário ter mais lógica ou ser reaproveitada pode ser separada em um componente separado.
+
