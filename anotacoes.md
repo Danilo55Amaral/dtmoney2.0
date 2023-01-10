@@ -31,3 +31,6 @@ tipagem que o styled já tem e não subcrever ela por isso a necessidade de impo
 
 - A tabela de transações foi feita dentro da página trnasactions porém se for necessário ter mais lógica ou ser reaproveitada pode ser separada em um componente separado.
 
+## Componente SearchForm 
+
+- Aqui foi contruido o formulário de busca, dentro da pasta pages foi criada uma nova pasta de components que foi criado o componente SeachForm.
