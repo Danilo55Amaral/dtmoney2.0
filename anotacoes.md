@@ -74,3 +74,10 @@ da aplicação, com isso podemos colocar por ex o nosso modal fora de todas as d
 - Outra coisa legal é que se você inspecionar vai perceber que a div do dialog é criada fora do contexto da aplicação, isso ajuda bastante por que toda a parte de acessibilidade já vem junto como por ex fechar o modal apertando a tecla Esc do teclado.
 
 link do Radix     https://www.radix-ui.com
+
+## Modal de nova transação
+
+- Foi criado um novo componente chamado NewTransactionModal esse componente apena tem a parte do conteudo do modal.
+
+-  Foi necessário estilizar componentes do Dialog e para isso foi necessário importar dentro do 
+arquivo styles.ts.
