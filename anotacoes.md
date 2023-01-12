@@ -85,3 +85,19 @@ arquivo styles.ts.
 ## Botões de entrada e Sáida
 
 - Dentro do componente NewTransactionModal foi criado um container chamado TransactionType e um outro chamado TransactionTypeButton.
+
+## Criando radio button acessivel
+
+- Esse botções de entrada e saida funcionam como um radio button do html, funciona 
+como uma entrada de dado que só pode ser selecionada uma opção.
+
+- O Radix tem o elemento de Radio chamado Radio Group e vamos utiliza-lo para controlar a informação de qual botão foi selecionado.
+
+- deve rodar o comando   npm install @radix-ui/react-radio-group
+
+link: https://www.radix-ui.com/docs/primitives/components/radio-group
+
+- Importei o RadioGroup e no styles no transactioType que é div que está por volta dos botoes, transformei ela no RadioGroup.root, também  vou fazer com o TransactionTypeButton.
+
+- Vai gerar um erro no arquivo index por que é obrigatório passar uma propriedade, 
+chamada value que indica qual o valor do intem especifico.
