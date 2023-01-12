@@ -101,3 +101,51 @@ link: https://www.radix-ui.com/docs/primitives/components/radio-group
 
 - Vai gerar um erro no arquivo index por que é obrigatório passar uma propriedade, 
 chamada value que indica qual o valor do intem especifico.
+
+## Configurando JSON Server Para simular api
+
+- Nesse projeto é necessário Consumnir uma api isso por que é importante aprender a 
+utilizar a api de fetch do navegador para poder fazer a comunicação de um front end 
+com um back end independentemente da linguagem em que o back end foi criado, vamos 
+seguir o padrão de uma api rest full.
+
+- Como ainda não temos um back end para esse projeto é necessário alguma ferramenta 
+que faça a simulação de um back end para que possamos testar, o json-server é uma das melhores opções que temos atualmente. 
+
+- https://github.com/typicode/json-server
+
+- Esse projeto do json-server a partir de um arquivo json ele cria uma api completa 
+permitindo criar rotas, fazer filtros, paginação, ordenação, fazer operações entre varias outas coisas.
+
+- instalamos rodando o seguinte comando  npm i json-server -D
+
+- Crio um arquivo na raiz do projeto chamado server.json dentro desse arquivo foi 
+criado um objeto, para cada propriedade que for passada a esse objeto vai ser uma 
+rota da aplicação, ou podemos chamar de entidade da aplicação.
+
+- O json-server só será util em desenvolvimento em produção não é possivel utilizar 
+esse é um projeto para que seja possivel construir uma interface front end sem 
+depender que o back end da aplicação esteja pronto, ele deixa o react por ex com 
+tudo pronto para fazer o consumo de uma api que possa vir no futuro quando o projeto 
+for para produção.
+
+- Para rodar basta rodar o seguinte comando  npx json-server nome-do-arquivo
+
+- Para rodar o json-server modificando a porta basta rodar o comando abaixo passando a porta
+npx json-server nome-do-arquivo -p 3333
+
+- Para acessar basta colocar o endereço da porta no navegador http://localhost:3000
+
+- Para acessar a rota criada basta colocar a rota no endereço http://localhost:3000/transactions.
+
+- Por padrão o arquivo do json-server não fica monitorando se ele mudou para mostrar as informações 
+atualizadas sem a necessidade de rodar novamente para que isso seja feito de forma automatica basta quando 
+rodar o comando utilizar o -w       npx json-server nome-do-arquivo -w
+
+- O json-server é muito poderoso por que não é apenas uma ferramenta de listagem mas é uma api completa
+da para criar uma nova informação utilizando o POST por exemplo, da para atualizar informações já 
+existentes, da para deletar informações, da para listar alguma informação especifica.
+
+- Posso simplificar o meu comando para rodar o json-server indo lá no arquivo package.json em scripts 
+e adicionar "dev:server": "npx json-server nome-do-arquivo -w -d 500", salvando. com isso para rodar 
+o json-server basta rodar o comando criado no script            npm dev:server
