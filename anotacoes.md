@@ -81,3 +81,7 @@ link do Radix     https://www.radix-ui.com
 
 -  Foi necessário estilizar componentes do Dialog e para isso foi necessário importar dentro do 
 arquivo styles.ts.
+
+## Botões de entrada e Sáida
+
+- Dentro do componente NewTransactionModal foi criado um container chamado TransactionType e um outro chamado TransactionTypeButton.
