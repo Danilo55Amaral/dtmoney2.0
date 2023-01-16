@@ -177,3 +177,23 @@ array ou um objeto. foi criado uma interface para tipar os dados e foi passado p
 
 - PS- Lembrando que quando temos um map dentro do react é importante que o primeiro elemento possua
 uma key com alguma informação que seja unica.
+
+## Criando contexto de transações
+
+- Vai ser necessário ter esses dados que vem da api em outros locais da aplicação como no sumary
+por exemplo, é necessário ter acesso aos dados da api para conseguir calcular as entradas e saidas 
+por exemplo, esses dados poderiam ser enviados através de proppriedades sem problemas. 
+
+- Porém como temos varios componentes de niveis diferentes precisando acessar essas informações de 
+transactions, a forma mais fácil de se fazer isso é com contexto.
+
+- Foi criado uma pasta chamada contexts, dentro foi criado um arquivo chamado 
+TransactionsContext.tsx
+
+- Depois de criado o contexto movemos o código de chamada api para dentro do contexto
+
+- Dentro do App.tsx colocamos o nosso provider do contexto.
+
+- Em seguida utilizei o useContext chamando meu contexto dentro do componente em que uso os dados.
+
+- Dentro do componente de summary eu também vou acessar esses dados atraves da context api
