@@ -149,3 +149,31 @@ existentes, da para deletar informações, da para listar alguma informação es
 - Posso simplificar o meu comando para rodar o json-server indo lá no arquivo package.json em scripts 
 e adicionar "dev:server": "npx json-server nome-do-arquivo -w -d 500", salvando. com isso para rodar 
 o json-server basta rodar o comando criado no script            npm dev:server
+
+## Realizando requisição HTTP
+
+- O Json server funciona exatamente como o back end da aplicação isso por que ele simula um back end 
+
+- Para carregar os dados das transações vindas do back end, no componente de Transaciotns, deve ser tomado 
+açguns cuidados para que essa lista seja carregada é necessário utilizar a api de fetch do navegador, esse 
+metodo é chamado é passado o endereço, esse metodo devolve uma resposta response, isso é feito através de 
+uma promise, porém é importante lembrar que tudo que estiver dentor da função do componente irá executar 
+sempre que o componente for renderizado, isso não pode acontecer aqui por que queremos que esse fecth seja 
+executado uma unica vez, por isso devemos utilizar o useEffect do react que é uma forma de conseguir 
+disparár uma função em determinado momento, dentro do useEffect se tivermos o array de dependencias vazio 
+a função será executada uma única vez.
+
+- E necessário converter os dados que vem da requisição para algum formato e dentro do proprio fetch 
+tem api que faz isso, temos a opção text e Json, o text vai trazer como um json, e o json vai trazer 
+já como um objero JavaScript.
+
+- O código pode ser melhorado excrevendo uma função async e chamado ela dentro do useEffect.
+
+- Para os dados serem mostrado em tela foi criado um estado, o estado é a melhor e única forma de se 
+armazenar informações dentro do react para serem consumidas pela interface. 
+
+PS- quando se cria um estado no react é sempre importante tipar o estado principalmente se for um 
+array ou um objeto. foi criado uma interface para tipar os dados e foi passado para o useState, dentro da tbody eu passei um map que vai percorrer todo o transaction retornando toda a tr da tabela. Com isso dentro do td posso passar as informações.
+
+- PS- Lembrando que quando temos um map dentro do react é importante que o primeiro elemento possua
+uma key com alguma informação que seja unica.
