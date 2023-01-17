@@ -197,3 +197,24 @@ TransactionsContext.tsx
 - Em seguida utilizei o useContext chamando meu contexto dentro do componente em que uso os dados.
 
 - Dentro do componente de summary eu também vou acessar esses dados atraves da context api
+
+## Calculando resumo de transações 
+
+- Aqui vamos calcular o resumo de entradas e saidas assim também como o total.
+- Poderiamos colocar dentro do contexto se fossemos utilizar esse calculo em outros compomentes
+porém como só vamos utilizar no summary é interessante fazer o calculo e trabalhar esses dados 
+dentro dele.
+
+- Para fazer isso foi criado uma const summary e utilizamos o metodo reduce que permite percorrer 
+um array e reduzir esse array a alguma nova estrutura de dados, nesse caso queremos converter transactions em um array de objetos que tem a seguinte estrutura { income: 0, outcome: 0, total: 0 } 
+para isso eu passei uma função como primeiro parametro do meu reducer e o segundo paramtro é a 
+estrutura de dados inicial que se comeca que nesse caso é esse objeto, dentro dessa função do reducer
+temos dois parametros um é o resumo atual que chamamos de acc (acumulation) esse acc nada mais é que o objeto que passamos nessa função, todas as operações dentro do Reducer irá acontecer dentro do 
+acumulation e como segundo parametro será colocado a estrutura que vai ser recebida no nosso caso o 
+transaction, para não ter erro com o typeScript essa função precisa retornar o proprio acc. Após isso 
+eu posso dentro do meu reducer fazer as operações com o acc.
+
+- Eu montei uma estrutura if que com cada interação que vai acontecer na lista de transações ela vai 
+aumentando o income e o outcome do acc. O total quando for uma entrada ele vai aumentar o preço da transação e se for uma saída ele vai diminuir.
+
+- Após isso basta jogar os dados do summary no meu código Tsx.
