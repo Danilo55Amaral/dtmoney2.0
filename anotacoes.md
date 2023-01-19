@@ -259,3 +259,47 @@ isso  para dentro do meu hook e no final retorno summary.
 
 - com isso o código ficou muito mais simples por que foi abstraido o calculo do resumo em um hook
 separado isso é muito util.
+
+## Aplicando React hook form 
+
+- Aqui configuramos o react hook form nos formularios da aplicação.
+
+- Para trabalhar com react hook form é necessário instalar a lib com o comando abaixo , também utilizamos o zod para fazer validação.
+       npm i react-hook-from zod
+
+- Depois eu utilizo o useForm dentro do meu componente SeachForm utilizando a principio as funções
+register e handleSubmit
+
+- Dentro de input eu chamai o register passando o  nome do campo que chamamos de query geralmente 
+quando queremos fazer uma busca e ela não é em um campo especifico, quando busca em varios campos 
+de um registro ao mesmo tempo utiliza-se query.
+
+- dentro do onSubmit eu chamei a função handleSubmit passando como argumento a função que criei 
+handleSearchTransactions após isso eu importei o zod e criei meu schema que chamei de searchFormSchema
+
+- Também adicionei a tipagem e como estou utilizando o zod eu pude utilizar o z.infer que vai me 
+retornar exatamente a tipagem do nosso formulario.
+
+- Também é necessário instalar mais uma lib 
+        npm i @hookform/resolvers  
+
+- Utilizei o zodResolver dentro do useForm. 
+
+- Dentro do handleSearchTransactions eu passaei como dados SearchFormInputs e utilizei um 
+console.log(data); para testar se os dados estão vindo passando corretamente para a quary.
+
+- Dentro da desestruturação do meu useform eu utilizei o  formState e desestruturei de dentro dele o 
+isSubmitting que vai retornar um true ou false que informa se o formulario está em estado de submit ou seja enviando as informações ou não. Com isso eu posso desabilitar o botão quando tiver isSubmitting
+disabled={isSubmitting}.
+
+- a função handleSearchTransactions pode ser transformada em uma async e podemos simular uma 
+requisição de api para fazer algo demorar ali dentro , dando um await criando uma nova promise 
+e resolver essa promise depois de dois segundos.
+
+- Dentro do estilos do compoente SearchForm e dentro do botão eu escrevo o seguinte quando o botção 
+estiver disabled vou diminuir a sua opacidade para 0.6 e no estado de hover só vai ser aplicado 
+somente se ele não estiver disabled.
+
+- Também fizemos o mesmo no componente NewTransactionModal que também tem um form.
+
+- PS- Para converter o valor do input para numero eu utilizei o { valueAsNumber: true }.
