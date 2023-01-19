@@ -237,3 +237,25 @@ valores.
 indicando negativo.       {transaction.type == 'outcome' && '-'}
 
 - O nosso creatdAt vem como uma string e antes é necessário converter utilizando o new Date
+
+## Criando hook para o resumo 
+
+- Aqui vemos um poder que temos dentro do React que permite com que melhoremos a escrito do código
+criando hooks próprios parte que calcula o resumo está dentro do proprio componente e está totalmente 
+correto fazer dessa forma porém existe outra forma de se fazer que também é bem interessante.
+
+- O React permite que a gente crie os nossos proprios hooks que nada mais são do que funções que 
+utilizam os outros hooks do react com isso podemos utilizar dentro dos nossos componentes.
+
+- Essa estratégia é bastante utilizada quando temos um código muito grande para fazer determinada
+coisa dentro do componente.
+
+- Criamos uma pasta chamada hooks onde criamos nossos hooks.
+- Dentro da pasta criamos um arquivo para nosso hook chamado useSummary.ts
+- depois eu vou lá no meu componente quando eu calculo a soma dos valores e recorto o código que faz 
+isso  para dentro do meu hook e no final retorno summary.
+
+- Depois basta eu utilizar meu hook dentro do componente       const summary = useSummary();
+
+- com isso o código ficou muito mais simples por que foi abstraido o calculo do resumo em um hook
+separado isso é muito util.
