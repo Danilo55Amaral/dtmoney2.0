@@ -218,3 +218,22 @@ eu posso dentro do meu reducer fazer as operações com o acc.
 aumentando o income e o outcome do acc. O total quando for uma entrada ele vai aumentar o preço da transação e se for uma saída ele vai diminuir.
 
 - Após isso basta jogar os dados do summary no meu código Tsx.
+
+## Formatando Valores
+
+- Aqui vamos ver os valores que não estão formatados em tela.
+
+- Para trabalhar com essa formatação foi criada uma nova pasta chamada utils e dentro 
+um arquivo chamado formatter.ts dentro desse arquivo foi criado os dois objetos de 
+formatação.
+
+- Utilizamos para a formatação o new Intl que é a api de internacionalização do proprio
+javascript passando o DateTimeFormat para formatar as datas e o NumberFormat para os 
+valores.
+
+- Após isso eu vou nas páginas e utilizo esses objetos para fazer a conversão.
+
+- Também criei uma condicional para que quando a minha transação for outcome ele colocar um sinal 
+indicando negativo.       {transaction.type == 'outcome' && '-'}
+
+- O nosso creatdAt vem como uma string e antes é necessário converter utilizando o new Date
