@@ -303,3 +303,29 @@ somente se ele não estiver disabled.
 - Também fizemos o mesmo no componente NewTransactionModal que também tem um form.
 
 - PS- Para converter o valor do input para numero eu utilizei o { valueAsNumber: true }.
+
+## Controlled components 
+
+- Aqui utilizamos uma funcionalidade do react hook form para conseguir o envio da informação no 
+TransactionType de entrada e saída para dentro do formulario, quando queremos inserir uma informação 
+que ela não vem de um campo nativo do htlm, é necessário utilizar uma api do react hook form de 
+controle, nesse caso vamos utilizar o conceito decontrolled e para usar isso teremos dentro do 
+useForm utilizar uma propriedade chamada control ou seja sempre que quisermos incluir uma informação
+num formulário e essa informação não vem de um input ou qualquer elemento nativo do html é interessante
+utilizar esse formato de control.
+
+- Por Volta do TransactionType eu utilizo um componente que importo do react hook form  chamado 
+Controller, dentro dele é passado a propriedade control que importamos em cima, passo também 
+a propriedade name passando o nome do campo no nosso projeto o type que é a informação que 
+queremos inserir, depois foi passado uma ultima propriedade que é o render que é uma função 
+que retorna qual o conteudo que será relacionado a esse campo e dentro eu coloco o TransactionType.
+
+- dentro da propriedade render eu desestruturei a propriedade field que me permite 
+ter acesso a função onChange que é a função que anota o valor do campo type, eu 
+passei atravéz da propriedade onValuechange que quando o valor do campo type mudar 
+eu chamo a partir de field a função onChange com isso temos a informação do valor atual e podemos passar o value={field.value}. 
+
+- Isso é importante por ex quando queremos iniciar o valor do campo type com um valor
+padrão
+
+- dando um console em field eu posso monitorar esses dados.
