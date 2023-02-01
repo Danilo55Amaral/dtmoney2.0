@@ -329,3 +329,17 @@ eu chamo a partir de field a função onChange com isso temos a informação do 
 padrão
 
 - dando um console em field eu posso monitorar esses dados.
+
+## Buscando transações (Filtrando/ Buscador)
+
+- Aqui configuramos o buscador.
+- Dentro do meu TransactionsContext eu renomeei a função loadTransactions para
+fetchTransactions adicionei essa função na interface e passei como value do meu
+provider do transactions Context 
+
+- Dentro do componente SearchForm da para ter acesso através do useContext a 
+função fetchTransactions quando essa função for chamada ele irá realizar a busca 
+de transações novamente e salvar o valor do estado dentro do transactions porém 
+não dá para enviar um string para fazer a busca para resolver esse problema eu 
+fiz com que a função fetchTransactions receba como paramtro uma query de busca 
+do tipo string e é importante passar essa query como opcional.
