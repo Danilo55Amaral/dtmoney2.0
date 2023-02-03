@@ -31,6 +31,14 @@
       "type": "income",
       "createdAt": "2023-02-03T17:57:57.924Z",
       "id": 4
+    },
+    {
+      "description": "X tudo",
+      "price": 20,
+      "category": "Alimentação",
+      "type": "outcome",
+      "createdAt": "2023-02-03T18:32:31.109Z",
+      "id": 5
     }
   ]
 }

@@ -379,3 +379,45 @@ a abaixo:
                                 setTransactions(response.data);
 
 
+## Criando nova transação 
+
+- Aqui implementamos dentro do modal a funcionalidade de fazer um novo cadastro de
+uma nova transação em nossa api. 
+
+- Dentro do meu componente NewTransactionModal eu chamo minha api fazendo uma 
+requisição do tipo post setando meus dados que quero enviar para minha api.
+uma dica é que eu posso desestruturar data e simplificar meu código. 
+
+  const { description, price, category, type } = data;
+
+        await api.post('transactions', {
+            description,
+            price,
+            category,
+            type,
+            createdAt: new Date(),
+        })
+
+- Agora posso testar fazendo uma nova transação e verificando minha api do json 
+server. Note que não está resetando o formulário , para fazer isso basta eu 
+chamar a função reset. 
+
+- note que a ordem na tabela é que a nova inserção vai para a ultima posição 
+mas é interessante que venha na primeira por isso eu posso utilizar dentro 
+da minha requisição get  nos paramtros a propriedade _sort para ele exibir por 
+ordem da data, e a propriedade _order passando desc para colocar em ordem 
+decrecente. 
+
+- Note também que a tabela só foi atualizada depois de atualizar a página para
+resolver isso podemos criar uma função async que vai criar ums transação de
+dentro do contexto e eu movi arequisição para dentro dela.
+Eu em seguida fiz um setTransactions copiando todas as transações que ja tem, 
+uma coisa importante é que quando se faz uma atualização de estado que depende 
+do valor anterior daquele estado é melhor fazer isso utilizando um calback e 
+por isso utilizamos o ...state e passando a nova transação que retornou da 
+resposta no começo da lista de transações.
+
+- Em seguida de dentro do meu NewTransactionModal eu importo de dentro do meu 
+useContext a função createTransaction.
+
+
