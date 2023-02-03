@@ -343,3 +343,39 @@ de transações novamente e salvar o valor do estado dentro do transactions por�
 não dá para enviar um string para fazer a busca para resolver esse problema eu 
 fiz com que a função fetchTransactions receba como paramtro uma query de busca 
 do tipo string e é importante passar essa query como opcional.
+
+## Configurando Axios 
+
+- Aqui configuramos uma lib para fazer as requisições http por mais que e fetch 
+api do navegador seja interessante, geralmente o fecth é uma api um pouco mais 
+trabalhosa para fazer as requisições, sempre tem que está chamando o link para
+a requisição, com o fecth não dá para setar um prefixo ou configuração para que
+para que todas as requisições partam sempre para  de um mesmo endereço.
+
+# Axios API 
+
+- Por isso é interessante utilizar libs como o axios , para instalar eu rodo 
+o comando    npm i axios   
+
+- Eu criei uma pasta chamada lib e dentro um arquivo chamado axios.ts que será 
+a configuração do axios em si. 
+
+- Dentro desse arquivo de configuração eu exporto uma variavel na qual chamo de 
+api que recebe axios.create que passo as configurações, umas das coisas mais 
+legais no axios eu que podemos utilizar a baseURL onde podemos setar qual  o
+endereço da nossa api, ou seja todas as requisições disparadas com o axios vão
+automaticamente enviadas para esse endereço, por isso onde vamos fazer a 
+requisição em si precisamos digitar apenas a rota e não o endereço completo.
+
+- Emseguida eu posso substituir o código da minha antiga requisição pelo código 
+a abaixo: 
+
+                     const response = await api.get('/transactions', {
+                                params: {
+                                q: query,
+                                }
+                        })
+
+                                setTransactions(response.data);
+
+
