@@ -456,3 +456,31 @@ necessário passar uma função como segundo parametro e essa função recebe o 
 contexto como parametro e eu retorno quais informações desse contexto eu quero 
 obeservar 
 
+## Aplicando o useCallback 
+
+- Toda variavel ou toda função que criamos no corpo do componente, aquilo é recriado do zero 
+sempre que aquele componente renderizar, isso por si só não vai deixar a aplicação mais lenta 
+mas em alguns casos isso causa um problema de igualdade e referencial como é o que estamos 
+exemplificando aqui.
+
+- Temos um componente e queremos evitar que ele renderize por causa de uma função que não mudou 
+entre uma renderização e outra, nesses casos podemos utilizar uma função que vem de dentro do 
+React que é um hook chamado useCallback esse hook vai evitar que alguma função seja recriada
+em memoria se nenhuma informação que aquela função dependa tenha mudado.
+
+- Dentro do TransactionsContext eu transformei minha createTransaction em uma const e passei 
+seu conteúdo para o primeiro parametro desse callback e como segundo parametro eu passo um 
+array de dependencias.
+
+- Esse array de dependecias funciona igual ao do useEffect o que for passado para esse array 
+de dependecias vai fazer com que essa função seja recriada em memoria ,se o array de 
+dependencias é vazio essa função nunca será recriada em memoria, vale ressaltar uma coisa 
+se essa função precisar de alguma informação que venha de fora dela, essa informação que vem 
+de fora precisa ser colocada dentro do array de dependencias, se não quando o usuario executar 
+essa informação ela vai estar com esse valor desatualizado.
+
+- Isso em uma aplicação pequena igual a essa , não vai mudar muita coisa mas em grandes 
+aplicações pode otimizar bastante.
+
+
+
