@@ -482,5 +482,59 @@ essa informação ela vai estar com esse valor desatualizado.
 - Isso em uma aplicação pequena igual a essa , não vai mudar muita coisa mas em grandes 
 aplicações pode otimizar bastante.
 
+## Aplicando o memo 
 
+- Por que que um componente renderiza ?  São 3 motivos 
+- Hooks Changed (mudou estado, Contexto, reducer); 
+- Props changed (mudou propriedades);
+- Parent rendered (componente pai renderizou);
 
+- Qual o fluxo de renderização ? Ele tem 3 passos 
+1. O React recria o HTML da interface daquele componente
+2. Compara a versão do HTML recriada com a versão anterior
+3. Se mudou alguma coisa, ele reescreve o HTML na tela
+
+- Esses passos do fluxo de renderização do react é extremamente rápido e por isso que
+nem sempre vale a pena ficar tentando evitar renderizações no React. 
+
+- Imagine que um componente tem um HTML muito grande, essa comparação que o react faz com
+o html anterior iria ficar lenta por que o react compara cada detalhe de dentro quanto maior o 
+componente no quesito no que ele retorna mas podemos ter problemas nessa questão de lentidão 
+no fluxo de renderização. Por isso apenas nesses casos deve-se e podemos utilizar uma função
+de dentro do React que se chama memo.
+
+-  O Memo é uma função que é utilizada em componentes do React para poder memorizar aquele 
+componente, quando o react entra no fluxo de renderização e o componente utiliza o memo 
+o fluxo de renderização muda um pouco, ele adiciona a mais um passo antes do fluxo de 
+renderização do React, o memo olha se mudou alguma coisa nos hooks do componente ou 
+mudou alguma coisa nas propriedades do componente e aqui ele faz o que chamamos de 
+(deep comparison) ele olha de forma profunda para os hooks e para as propriedades do 
+componente em seguida ele vai comparar com a versão anterior dos hooks e props e se mudou 
+algo ele vai permitir a nova renderização caindo no fluxo de renderização do react.
+Se não tiver mudado nada ele não vai entrar no fluxo de renderização do HTML.
+
+- Para utilizar eu vou no meu SearchForm e vou renomear para SearchFormComponent e exporto 
+da seguinte forma:      export const SearchForm = memo(SearchFormComponent);
+
+- Lembrando que não podemos sair utilizando o memo em todos os componentes por que na maioria 
+das vezes a comparação que ele faz com os hooks e props muitas vezes é mais lenta que o fluxo 
+de renderização em si. por isso que evita-se utilizar o memo em componentes simples, o memo 
+deve ser utilizado em componentes que tem interfaces bem complexas cheio de condicionais,
+repetições, listas entre outas estruturas.
+
+## Aplicando o useMemo 
+
+- Aprendemos que podemos utilizar o callback para evitar que alguma função seja recriada 
+em memoria quando a mesma não precisar ser recriada em memoria, quando utilizamos a função 
+Callback dentro de fetchTransactions o react pede para colcoar essa função dentro do useEffect
+isso não vai causar nenhum problema pois no array de dependencias do callback não tem nada e 
+por isso a função fetchTransactions só será executada uma única vez.
+
+- Para evitar que variaveis sejam recriadas em memoria utilizamos o useMemo que funciona 
+exatamente como o memo porém ele memoriza variaveis e não componentes, para exemplificar eu 
+vou no hook onde temos um calculo do summary, eu pego o código do  calculo e escrevo o useMemo
+por volta como uma função, o primeiro parametro retorna meu código do calculo e o segundo o 
+array de dependencias, dentro do array de depedencias eu coloco quais variaveis externas do 
+useMemo que está sendo utilizada dentro da função, com isso a nossa variavel só vai ser recriada
+quando a minha variavel do array de dependencias mudar antes disso ela era recriada toda vez 
+que o meu componente era renderizado.
