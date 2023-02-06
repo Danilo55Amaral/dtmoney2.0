@@ -420,4 +420,39 @@ resposta no começo da lista de transações.
 - Em seguida de dentro do meu NewTransactionModal eu importo de dentro do meu 
 useContext a função createTransaction.
 
+## Utilizando React DevTools
+
+- Uma ótima ferramenta para inspecionar aplicações React principalmente quando 
+se trata de performance e ciclos de renderização, essa ferramenta se chama 
+react devtools, é uma extenção que pode ser instalada ao navegador. 
+
+PS - Quando o site utiliza React em produção o icone fica azul quando esta em 
+desenvolvimento ele fica vermelho.
+
+## Aplicando Context Selectors 
+
+- Aqui vemos como evitar renderizações desnecessárias no react , para isso 
+podemos verificar no profiler do React DecTools o tempo de renderização dos 
+compoentes que testamos em tela.
+
+- Uma das coisas importantes de se verificar quando lidamos com contextos 
+no react é que o React não possue uma api interna para se selecionar campos 
+especificos de um contexto, no react por padrão na context api não se consegue 
+falar para um componente olhar apenas para uma informação especifica e não 
+para as outras que estão dentro do contexto  não é possivel fazer isso, no react
+independetemente de qual informação mudar dentro do contexto todos os componentes 
+que dependem de qualquer informação desse contexto vão ser renderizados.
+
+- Uma lib que foi criada para se resolver esse problema foi a use-context-selector
+que podemos utilizar para resolver esse problema para instalar eu rodo o comando 
+npm i use-context-selector scheduler . 
+
+Essa lib é bem simples de utilizar , la dentro do contexto ao invés de chamar a 
+createContext que vem de dentro do react eu chamo a createContext que vem de 
+dentro de use-context-selector. 
+Também não vamos mais utilizar o useContext para selecionar o nosso contexto 
+vamos utilizar o useContextSelector  e depois além de passar o contexto é 
+necessário passar uma função como segundo parametro e essa função recebe o nosso
+contexto como parametro e eu retorno quais informações desse contexto eu quero 
+obeservar 
 
